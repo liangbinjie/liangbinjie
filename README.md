@@ -11,7 +11,7 @@
   About Me
 </h2>
 
-- 📓 Computer Enginner Student in Tecnologico de Costa Rica
+- 📓 Computer Enginnering Student in Tecnologico de Costa Rica
 - 💻 Currently learning ReactJS
 - 💽 Love Pop | R&B Music
 - 🔨 Currently working on Java SpringBoot website
