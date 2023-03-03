@@ -34,3 +34,4 @@
 </p>
 
 ---
+![Anurag's GitHub stats](https://benji-stats.vercel.app/api?username=liangbinjie&show_icons=true&theme=tokyonight)
