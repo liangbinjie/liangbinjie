@@ -37,11 +37,11 @@
   Contact
  </h4>
 <p align="center">
-  <a href="https://www.linkedin.com/binjieliang](https://www.linkedin.com/in/liangbinjie/">
+  <a href="https://www.linkedin.com/in/liangbinjie/">
     <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn
   </a> 	&nbsp; 	&nbsp;
   
-  <a href="https://github.com/[removed]](https://github.com/liangbinjie">
+  <a href="https://github.com/liangbinjie">
     <img src="https://i.stack.imgur.com/tskMh.png" alt="github"> Github
   </a> 	&nbsp; 	&nbsp;
   
