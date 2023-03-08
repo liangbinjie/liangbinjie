@@ -11,11 +11,12 @@
   About Me
 </h2>
 
-- 📓 Computer Enginnering Student in Tecnologico de Costa Rica
+- 📓 Computer Enginnering Student at Tecnologico de Costa Rica
 - 💻 Currently learning ReactJS
 - 💽 Love Pop | R&B Music
 - 🔨 Currently working on Java SpringBoot website
 - ✨ Call me Benji
+- 🎥 Drone Pilot
 
 ---
 <h2 align="center">
