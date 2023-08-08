@@ -30,8 +30,17 @@
 </p>
 
 ---
-![Benji's GitHub stats](https://benji-stats.vercel.app/api?username=liangbinjie&show_icons=true&theme=tokyonight)
-[![spotify-github-profile](https://spotify-github-profile.vercel.app/api/view?uid=x118pff38pfrl389x1e3madqq&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false)](https://github.com/kittinan/spotify-github-profile)
+<div align="center">
+  <a href="https://github.com/kittinan/spotify-github-profile" target="_blank">
+    <img src="https://spotify-github-profile.vercel.app/api/view?uid=x118pff38pfrl389x1e3madqq&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false" alt="spotify-github-profile">
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
+    <img src="https://benji-stats.vercel.app/api?username=liangbinjie&show_icons=true&theme=tokyonight" alt="spotify-github-profile">
+  </a>
+</div>
 
 ---
 <h4 align="center">
