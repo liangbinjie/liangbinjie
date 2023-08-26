@@ -12,9 +12,7 @@
 </h2>
 
 - 📓 Computer Enginnering Student at Tecnologico de Costa Rica
-- 💻 Currently learning ReactJS
 - 💽 Love Pop | R&B Music
-- 🔨 Currently working on Java SpringBoot website
 - ✨ Call me Benji
 - 🎥 Drone Pilot
 
