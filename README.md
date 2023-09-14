@@ -11,7 +11,7 @@
   About Me
 </h2>
 
-- 📓 Computer Enginnering Student at Tecnologico de Costa Rica
+- 📓 Computer Science Student at Tecnologico de Costa Rica
 - 💽 Love Pop | R&B Music
 - ✨ Call me Benji
 - 🎥 Drone Pilot
@@ -23,7 +23,7 @@
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=js,html,css,java,python,react,bootstrap,postgres,vscode,vite,git" />
+    <img src="https://skillicons.dev/icons?i=js,html,css,java,python,react,bootstrap,postgres,vscode,vite,git,cpp" />
   </a>
 </p>
 
