@@ -36,10 +36,15 @@
 
 <div align="center">
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img src="https://benji-stats.vercel.app/api?username=liangbinjie&show_icons=true&theme=tokyonight" alt="spotify-github-profile">
+    <img src="https://benji-stats.vercel.app/api?username=liangbinjie&show_icons=true&theme=tokyonight" alt="github-profile">
   </a>
 </div>
 
+<div align="center">
+  <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=liangbinjie&layout=compact" alt="top-langs">
+  </a>
+</div>
 ---
 <h4 align="center">
   Contact
