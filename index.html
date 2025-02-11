@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benji's Desktop</title>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body> 
+
+    <div class="login-screen" id="login-screen">
+        <div class="login">
+            <img src="static/pfp.jpeg" alt="" class="pfp">
+            <button class="login-button" onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <div class="top">
+        <div class="topbar">
+            <i class="fa-solid fa-volume-high topbar-icon"></i>
+            <i class="fa-solid fa-power-off topbar-icon" onclick="logout()"></i>
+            <i class="fa-solid fa-caret-down topbar-icon"></i>
+        </div>
+    </div>
+
+    <div class="desktop">
+        <button class="desktop-button" href="#"><img class="desktop-icon" src="static/pdf.png"/>My CV</button>
+        <button class="desktop-button" href="#"><img class="desktop-icon" src="static/folder.png"/>Projects</button>
+        <button class="desktop-button" href="#"><img class="desktop-icon" src="static/gallery.png"/>Gallery</button>
+    </div>
+
+    <div class="taskbar">
+        <button class="" href="#"><img class="taskbar-icon" src="static/music.svg" alt="music player icon"/></button>
+        <button class="" href="#"><img class="taskbar-icon" src="static/folder.png"/></button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

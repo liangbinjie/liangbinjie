@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Desktop Style</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .desktop {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        .icon {
+            font-size: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            padding: 10px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .icon:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+
+        .selected {
+            border: 2px solid #00BFFF;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+
+        .taskbar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            padding: 10px;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .taskbar-icon {
+            font-size: 30px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .taskbar-icon:hover {
+            color: #00BFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="desktop">
+        <i class="fas fa-folder icon" ondblclick="openPage('folder.html')" onclick="iconClicked(this, 'Folder')"></i>
+        <i class="fas fa-file icon" ondblclick="openPage('file.html')" onclick="iconClicked(this, 'File')"></i>
+        <i class="fas fa-cog icon" ondblclick="openPage('settings.html')" onclick="iconClicked(this, 'Settings')"></i>
+    </div>
+
+    <div class="taskbar">
+        <i class="fas fa-windows taskbar-icon" onclick="iconClicked(this, 'Start Menu')"></i>
+        <i class="fas fa-search taskbar-icon" onclick="iconClicked(this, 'Search')"></i>
+        <i class="fas fa-bell taskbar-icon" onclick="iconClicked(this, 'Notifications')"></i>
+    </div>
+
+    <script>
+        function iconClicked(element, iconName) {
+            document.querySelectorAll('.icon').forEach(icon => icon.classList.remove('selected'));
+            element.classList.add('selected');
+            console.log(iconName + ' clicked!');
+        }
+
+        function openPage(page) {
+            window.open(page, '_blank');
+        }
+    </script>
+</body>
+</html>
