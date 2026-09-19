@@ -1,4 +1,6 @@
 ---
+import { asset } from '../lib/assets';
+
 type GalleryImage = {
     src: string;
     label: string;
@@ -15,28 +17,30 @@ const folders: GalleryFolder[] = [
         name: 'China',
         label: 'China',
         images: [
-            { src: '/img/gallery/China/chongqing-me.jpeg', label: 'chongqing me' },
-            { src: '/img/gallery/China/chongqing.jpeg', label: 'chongqing' },
-            { src: '/img/gallery/China/train.JPG', label: 'train' },
+            { src: asset('img/gallery/China/chongqing-me.jpeg'), label: 'chongqing me' },
+            { src: asset('img/gallery/China/chongqing.jpeg'), label: 'chongqing' },
+            { src: asset('img/gallery/China/train.JPG'), label: 'train' },
         ],
     },
     {
         name: 'LA-trip',
         label: 'LA trip',
         images: [
-            { src: '/img/gallery/LA-trip/LA-dawn.JPG', label: 'LA dawn' },
-            { src: '/img/gallery/LA-trip/LA-skyline.JPG', label: 'LA skyline' },
-            { src: '/img/gallery/LA-trip/LA-skyline2.JPG', label: 'LA skyline2' },
-            { src: '/img/gallery/LA-trip/griffith-dawn.JPG', label: 'griffith dawn' },
-            { src: '/img/gallery/LA-trip/griffith-seat.jpeg', label: 'griffith seat' },
-            { src: '/img/gallery/LA-trip/griffith-view.JPG', label: 'griffith view' },
+            { src: asset('img/gallery/LA-trip/LA-dawn.JPG'), label: 'LA dawn' },
+            { src: asset('img/gallery/LA-trip/LA-skyline.JPG'), label: 'LA skyline' },
+            { src: asset('img/gallery/LA-trip/LA-skyline2.JPG'), label: 'LA skyline2' },
+            { src: asset('img/gallery/LA-trip/griffith-dawn.JPG'), label: 'griffith dawn' },
+            { src: asset('img/gallery/LA-trip/griffith-seat.jpeg'), label: 'griffith seat' },
+            { src: asset('img/gallery/LA-trip/griffith-view.JPG'), label: 'griffith view' },
         ],
     },
 ];
 
 const rootImages: GalleryImage[] = [
-    { src: '/img/gallery/microsoft-visit.jpeg', label: 'microsoft visit' },
+    { src: asset('img/gallery/microsoft-visit.jpeg'), label: 'microsoft visit' },
 ];
+
+const folderIcon = asset('static/folder.png');
 ---
 
 <div class="folder-window" id="gallery-window" aria-hidden="true">
@@ -57,7 +61,7 @@ const rootImages: GalleryImage[] = [
         <div class="folder-content gallery-view" data-gallery-view="root">
             {folders.map((folder) => (
                 <button class="folder-item" type="button" data-gallery-folder={folder.name}>
-                    <img class="folder-item-icon" src="/static/folder.png" alt="">
+                    <img class="folder-item-icon" src={folderIcon} alt="">
                     <span>{folder.label}</span>
                 </button>
             ))}

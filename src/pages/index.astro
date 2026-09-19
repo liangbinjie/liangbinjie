@@ -7,10 +7,11 @@ import CvWindow from '../components/CvWindow.astro';
 import GalleryWindow from '../components/GalleryWindow.astro';
 import BrowserWindow from '../components/BrowserWindow.astro';
 import Taskbar from '../components/Taskbar.astro';
+import { asset } from '../lib/assets';
 import '../styles/global.css';
 ---
 
-<html lang="en">
+<html lang="en" style={`--desktop-bg: url('${asset('static/bg.jpg')}'); --login-bg: url('${asset('static/login_bg.jpg')}');`}>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -1,9 +1,13 @@
+---
+import { asset } from '../lib/assets';
+---
+
 <div class="login-screen" id="login-screen">
     <div class="login">
-        <img src="/static/pfp.jpeg" alt="" class="pfp">
+        <img src={asset('static/pfp.jpeg')} alt="" class="pfp">
         <p class="username">benji</p>
         <button class="login-button" id="login-button" aria-label="Login">
-            <img src="/icons/arrow-right.svg" alt="" class="login-icon">
+            <img src={asset('icons/arrow-right.svg')} alt="" class="login-icon">
         </button>
     </div>
 </div>

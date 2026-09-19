@@ -1,8 +1,10 @@
 ---
+import { asset } from '../lib/assets';
+
 const icons = [
-    { label: 'My CV', src: '/static/pdf.png', id: 'cv-button' },
-    { label: 'Projects', src: '/static/folder.png', id: 'projects-button' },
-    { label: 'Gallery', src: '/static/gallery.png', id: 'gallery-button' },
+    { label: 'My CV', src: asset('static/pdf.png'), id: 'cv-button' },
+    { label: 'Projects', src: asset('static/folder.png'), id: 'projects-button' },
+    { label: 'Gallery', src: asset('static/gallery.png'), id: 'gallery-button' },
 ];
 ---
 
