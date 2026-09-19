@@ -115,6 +115,156 @@ function closeBrowser() {
     }
 }
 
+function formatTime(seconds) {
+    if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${String(secs).padStart(2, '0')}`;
+}
+
+function getMusicTracks() {
+    const node = document.getElementById('music-window');
+    if (!node) return [];
+    try {
+        const tracks = JSON.parse(node.dataset.tracks || '[]');
+        return Array.isArray(tracks) ? tracks : [];
+    } catch {
+        return [];
+    }
+}
+
+const music = {
+    tracks: [],
+    index: 0,
+    seeking: false,
+};
+
+function musicEls() {
+    return {
+        windowEl: document.getElementById('music-window'),
+        audio: document.getElementById('music-audio'),
+        vinyl: document.getElementById('vinyl-disc'),
+        cover: document.getElementById('vinyl-cover'),
+        tonearm: document.getElementById('vinyl-tonearm'),
+        label: document.getElementById('music-track-label'),
+        playIcon: document.getElementById('music-play-icon'),
+        playButton: document.getElementById('music-play'),
+        seek: document.getElementById('music-seek'),
+        current: document.getElementById('music-current'),
+        duration: document.getElementById('music-duration'),
+        queue: document.getElementById('music-queue-list'),
+    };
+}
+
+function updateMusicQueue() {
+    const { queue } = musicEls();
+    if (!queue) return;
+    queue.querySelectorAll('[data-track-index]').forEach((item) => {
+        const active = Number(item.getAttribute('data-track-index')) === music.index;
+        item.classList.toggle('active', active);
+        if (active) item.setAttribute('aria-current', 'true');
+        else item.removeAttribute('aria-current');
+    });
+}
+
+function loadMusicTrack(index, autoplay = false) {
+    const { audio, cover, label } = musicEls();
+    if (!(audio instanceof HTMLAudioElement) || music.tracks.length === 0) return;
+
+    music.index = (index + music.tracks.length) % music.tracks.length;
+    const track = music.tracks[music.index];
+    audio.src = track.src;
+    if (cover instanceof HTMLImageElement) cover.src = track.cover;
+    if (label) label.textContent = `${track.artist} — ${track.title}`;
+    updateMusicQueue();
+    if (autoplay) {
+        audio.play().catch(() => {});
+    }
+}
+
+function setMusicPlaying(playing) {
+    const { vinyl, tonearm, playIcon, playButton } = musicEls();
+    vinyl?.classList.toggle('playing', playing);
+    tonearm?.classList.toggle('playing', playing);
+    if (playIcon) {
+        playIcon.classList.toggle('fa-play', !playing);
+        playIcon.classList.toggle('fa-pause', playing);
+    }
+    if (playButton) playButton.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+}
+
+function openMusic() {
+    const { windowEl } = musicEls();
+    if (!windowEl) return;
+    windowEl.classList.add('open');
+    windowEl.setAttribute('aria-hidden', 'false');
+}
+
+function closeMusic() {
+    const { windowEl, audio } = musicEls();
+    if (!windowEl) return;
+    windowEl.classList.remove('open');
+    windowEl.setAttribute('aria-hidden', 'true');
+    if (audio instanceof HTMLAudioElement) audio.pause();
+}
+
+function toggleMusic() {
+    const { audio } = musicEls();
+    if (!(audio instanceof HTMLAudioElement)) return;
+    if (audio.paused) audio.play().catch(() => {});
+    else audio.pause();
+}
+
+function initMusicPlayer() {
+    music.tracks = getMusicTracks();
+    const { audio, seek } = musicEls();
+    if (!(audio instanceof HTMLAudioElement)) return;
+
+    if (music.tracks.length > 0 && !audio.getAttribute('src')) {
+        loadMusicTrack(0);
+    }
+
+    audio.addEventListener('play', () => setMusicPlaying(true));
+    audio.addEventListener('pause', () => setMusicPlaying(false));
+    audio.addEventListener('ended', () => loadMusicTrack(music.index + 1, true));
+    audio.addEventListener('loadedmetadata', () => {
+        const { duration } = musicEls();
+        if (duration) duration.textContent = formatTime(audio.duration);
+        if (seek instanceof HTMLInputElement) seek.value = '0';
+    });
+    audio.addEventListener('timeupdate', () => {
+        const { current } = musicEls();
+        if (current) current.textContent = formatTime(audio.currentTime);
+        if (music.seeking || !(seek instanceof HTMLInputElement) || !audio.duration) return;
+        seek.value = String((audio.currentTime / audio.duration) * 100);
+    });
+
+    if (seek instanceof HTMLInputElement) {
+        seek.addEventListener('pointerdown', () => { music.seeking = true; });
+        seek.addEventListener('pointerup', () => { music.seeking = false; });
+        seek.addEventListener('input', () => {
+            if (!audio.duration) return;
+            audio.currentTime = (Number(seek.value) / 100) * audio.duration;
+        });
+    }
+
+    document.getElementById('music-play')?.addEventListener('click', toggleMusic);
+    document.getElementById('music-prev')?.addEventListener('click', () => {
+        loadMusicTrack(music.index - 1, !audio.paused);
+    });
+    document.getElementById('music-next')?.addEventListener('click', () => {
+        loadMusicTrack(music.index + 1, !audio.paused);
+    });
+    document.getElementById('music-queue-list')?.addEventListener('click', (event) => {
+        const item = event.target.closest('[data-track-index]');
+        if (!item) return;
+        const nextIndex = Number(item.getAttribute('data-track-index'));
+        if (!Number.isInteger(nextIndex)) return;
+        loadMusicTrack(nextIndex, true);
+    });
+    updateMusicQueue();
+}
+
 function formatClock(date) {
     return date.toLocaleString(undefined, {
         weekday: 'short',
@@ -148,6 +298,9 @@ document.getElementById('gallery-back')?.addEventListener('click', () => showGal
 document.getElementById('image-viewer-close')?.addEventListener('click', closeImageViewer);
 document.getElementById('browser-button')?.addEventListener('click', openBrowser);
 document.getElementById('browser-close')?.addEventListener('click', closeBrowser);
+document.getElementById('music-button')?.addEventListener('click', openMusic);
+document.getElementById('music-close')?.addEventListener('click', closeMusic);
+initMusicPlayer();
 
 document.getElementById('gallery-window')?.addEventListener('click', (event) => {
     const folder = event.target.closest('[data-gallery-folder]');

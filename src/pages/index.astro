@@ -6,6 +6,7 @@ import ProjectsFolder from '../components/ProjectsFolder.astro';
 import CvWindow from '../components/CvWindow.astro';
 import GalleryWindow from '../components/GalleryWindow.astro';
 import BrowserWindow from '../components/BrowserWindow.astro';
+import MusicPlayer from '../components/MusicPlayer.astro';
 import Taskbar from '../components/Taskbar.astro';
 import { asset } from '../lib/assets';
 import '../styles/global.css';
@@ -15,7 +16,8 @@ import '../styles/global.css';
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Benji's Desktop</title>
+        <title>Benji's Desktop | Portfolio</title>
+        <link rel="icon" href={asset('static/benOS.ico')} type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
@@ -26,6 +28,7 @@ import '../styles/global.css';
         <CvWindow />
         <GalleryWindow />
         <BrowserWindow />
+        <MusicPlayer />
         <Taskbar />
         <script src="../scripts/desktop.js"></script>
     </body>

@@ -3,11 +3,11 @@ import { asset } from '../lib/assets';
 ---
 
 <div class="taskbar">
-    <button>
+    <button id="music-button" aria-label="Music player">
         <img class="taskbar-icon" src={asset('icons/music-player.svg')} alt="music player" />
     </button>
     <button id="browser-button" aria-label="Google">
-        <img class="taskbar-icon" src={asset('icons/browser.png')} alt="browser" />
+        <img class="taskbar-icon" src={asset('icons/browser.png')} alt="browser" style="border-radius: 10px;"/>
     </button>
     <button>
         <img class="taskbar-icon" src={asset('static/folder.png')} alt="" />

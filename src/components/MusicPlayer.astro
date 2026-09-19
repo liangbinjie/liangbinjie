@@ -1,0 +1,96 @@
+---
+import { asset } from '../lib/assets';
+
+const tracks = [
+    {
+        title: '安靜',
+        artist: 'Jay Chou',
+        src: asset('music/Jay Chou - 安靜.mp3'),
+        cover: asset('music/范特西.jpeg'),
+    },
+    {
+        title: 'Blue',
+        artist: 'BIGBANG',
+        src: asset('music/BIGBANG - Blue.mp3'),
+        cover: asset('music/Alive.jpeg'),
+    },
+];
+---
+
+<div class="music-window" id="music-window" aria-hidden="true" data-tracks={JSON.stringify(tracks)}>
+    <div class="music-panel">
+        <div class="music-titlebar">
+            <span class="music-title">
+                <i class="fa-solid fa-compact-disc"></i>
+                Music
+            </span>
+            <button class="music-close" id="music-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="music-body">
+            <div class="music-player">
+                <div class="vinyl-stage">
+                    <div class="vinyl-deck">
+                        <div class="vinyl" id="vinyl-disc">
+                            <div class="vinyl-grooves"></div>
+                            <img class="vinyl-cover" id="vinyl-cover" src={tracks[0].cover} alt="">
+                            <div class="vinyl-spindle"></div>
+                        </div>
+                        <div class="tonearm" id="vinyl-tonearm" aria-hidden="true">
+                            <div class="tonearm-pivot"></div>
+                            <div class="tonearm-arm"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="music-track" id="music-track-label">{tracks[0].artist} — {tracks[0].title}</p>
+                <div class="music-progress">
+                    <span id="music-current">0:00</span>
+                    <input
+                        type="range"
+                        id="music-seek"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1"
+                        aria-label="Seek"
+                    >
+                    <span id="music-duration">0:00</span>
+                </div>
+                <div class="music-controls">
+                    <button id="music-prev" aria-label="Previous">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+                    <button class="music-play" id="music-play" aria-label="Play">
+                        <i class="fa-solid fa-play" id="music-play-icon"></i>
+                    </button>
+                    <button id="music-next" aria-label="Next">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+                </div>
+                <audio id="music-audio" preload="metadata" src={tracks[0].src}></audio>
+            </div>
+            <aside class="music-queue" aria-label="Queue">
+                <h2 class="music-queue-title">Queue</h2>
+                <ul class="music-queue-list" id="music-queue-list">
+                    {tracks.map((track, index) => (
+                        <li>
+                            <button
+                                class:list={['queue-item', index === 0 && 'active']}
+                                type="button"
+                                data-track-index={index}
+                                aria-current={index === 0 ? 'true' : undefined}
+                            >
+                                <img class="queue-cover" src={track.cover} alt="">
+                                <span class="queue-meta">
+                                    <span class="queue-song">{track.title}</span>
+                                    <span class="queue-artist">{track.artist}</span>
+                                </span>
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </aside>
+        </div>
+    </div>
+</div>
