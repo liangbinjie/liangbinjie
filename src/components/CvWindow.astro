@@ -1,0 +1,196 @@
+---
+const education = [
+    {
+        title: 'B.Sc. in Computer Engineering',
+        place: 'Instituto Tecnológico de Costa Rica — Cartago, Costa Rica',
+        date: 'Expected graduation: September 2027',
+    },
+];
+
+const projects = [
+    {
+        name: 'BowlPOS',
+        role: 'Founder & Software Developer',
+        place: 'San José, Costa Rica · 2025 – Present',
+        bullets: [
+            'Designed and developed a multi-tenant restaurant POS cloud platform using TypeScript, React, TanStack Start, PostgreSQL, Supabase, and REST APIs.',
+            'Built full-stack modules for order management, online ordering, kitchen display workflows, payments, menu administration, and restaurant operations.',
+            'Designed relational database schemas, authentication flows, role-based access controls, and multi-tenant data isolation for restaurant environments.',
+            'Gathered requirements from real restaurant workflows and translated operational needs into production software features.',
+            'Managed source control and feature development using Git and GitHub across iterative product releases.',
+        ],
+    },
+    {
+        name: 'BITE — x86-64 NASM Text Editor',
+        bullets: [
+            'Developed a terminal-based text editor in x86-64 Assembly (NASM) running on Linux, implementing file reading, editing, hexadecimal display, and file comparison.',
+            'Implemented command-line argument handling, multiple execution modes, and control-flow logic for different file operations.',
+            'Developed low-level file I/O, input processing, and buffer management in a Linux environment.',
+        ],
+    },
+    {
+        name: '2D Polygon Rendering & Interactive Map',
+        bullets: [
+            'Developed a C-based 2D graphics application on Linux to render Costa Rica’s provinces using structured polygon and coordinate-based data.',
+            'Implemented computer graphics algorithms including Bresenham line drawing, polygon clipping, and polygon filling with solid colors and textures.',
+            'Applied algorithmic problem solving and structured data representation to build an interactive geographic visualization.',
+        ],
+    },
+    {
+        name: 'EcoColones — Recycling Rewards Platform',
+        bullets: [
+            'Contributed to EcoColones, a recycling rewards platform built with a 10-member team for a university Project Management course.',
+            'Supported the design and development of a points-based rewards system connecting users with recycling centers and participating businesses.',
+        ],
+    },
+];
+
+const activities = [
+    {
+        title: 'Scrum Master',
+        name: 'EcoColones',
+        place: 'San José, Costa Rica',
+        date: 'July 2025 – November 2025',
+        bullets: [
+            'Coordinated a 10-member multidisciplinary team during the development of a recycling rewards platform for a university Project Management course.',
+            'Supported task assignment, project planning, progress tracking, and collaboration across different development responsibilities.',
+            'Applied Agile and Scrum practices to coordinate team activities and meet defined project milestones.',
+        ],
+    },
+];
+
+const skills = [
+    'C',
+    'C++',
+    'Python',
+    'x86-64 Assembly',
+    'Java',
+    'JavaScript',
+    'TypeScript',
+    'SQL',
+    'React',
+    'Next.js',
+    'Node.js',
+    'Linux',
+    'Git',
+    'Docker',
+    'PostgreSQL',
+    'MongoDB',
+    'Supabase',
+    'Figma',
+    'Agile / Scrum',
+];
+
+const languages = [
+    { name: 'Spanish', level: 'Native' },
+    { name: 'English', level: 'B2+' },
+    { name: 'Mandarin', level: 'HSK 5' },
+];
+
+const interests = [
+    'Software development',
+    'Photography',
+    'Product design',
+    'Content creation',
+    'Drone videography',
+];
+---
+
+<div class="pdf-window" id="cv-window" aria-hidden="true">
+    <div class="pdf-panel">
+        <div class="pdf-titlebar">
+            <span class="pdf-title">
+                <i class="fa-solid fa-file-pdf"></i>
+                My CV
+            </span>
+            <button class="pdf-close" id="cv-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="pdf-scroll">
+            <article class="pdf-page">
+                <h1 class="pdf-name">Binjie Liang</h1>
+                <hr class="pdf-divider">
+                <p class="pdf-contact">
+                    San José, Costa Rica · mailandresliang@gmail.com · +506 8723 4511
+                    <br>
+                    <a href="https://www.linkedin.com/in/liangbinjie/" target="_blank" rel="noopener noreferrer">linkedin.com/in/liangbinjie</a>
+                </p>
+                <p class="pdf-description">
+                    Final-year Computer Engineering student at Tecnológico de Costa Rica with experience in software development, full-stack
+                    web applications, project coordination, and multidisciplinary team collaboration. Skilled in TypeScript, JavaScript, Python,
+                    Java, Git, Linux, Agile methodologies, Microsoft 365, and relational and non-relational databases. Interested in cloud-native
+                    development, scalable software solutions, automation, and continuous learning. Seeking a professional software
+                    engineering internship beginning in February 2027 as part of graduation requirements.
+                </p>
+
+                <h2 class="pdf-heading">Education</h2>
+                <ul class="pdf-list">
+                    {education.map((item) => (
+                        <li>
+                            <strong>{item.title}</strong>
+                            <span class="pdf-place">{item.place}</span>
+                            <span class="pdf-place">{item.date}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                <h2 class="pdf-heading">Projects</h2>
+                <ul class="pdf-list">
+                    {projects.map((project) => (
+                        <li>
+                            <strong>{project.name}</strong>
+                            {project.role && <span class="pdf-role">{project.role}</span>}
+                            {project.place && <span class="pdf-place">{project.place}</span>}
+                            <ul class="pdf-bullets">
+                                {project.bullets.map((bullet) => (
+                                    <li>{bullet}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+
+                <h2 class="pdf-heading">Leadership and Activities</h2>
+                <ul class="pdf-list">
+                    {activities.map((item) => (
+                        <li>
+                            <strong>{item.name}</strong>
+                            <span class="pdf-role">{item.title}</span>
+                            <span class="pdf-place">{item.place} · {item.date}</span>
+                            <ul class="pdf-bullets">
+                                {item.bullets.map((bullet) => (
+                                    <li>{bullet}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+
+                <h2 class="pdf-heading">Skills</h2>
+                <ul class="pdf-chips">
+                    {skills.map((skill) => (
+                        <li>{skill}</li>
+                    ))}
+                </ul>
+
+                <h2 class="pdf-heading">Languages</h2>
+                <ul class="pdf-list">
+                    {languages.map((language) => (
+                        <li>
+                            <strong>{language.name}</strong>
+                            <span class="pdf-place">{language.level}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                <h2 class="pdf-heading">Interests</h2>
+                <ul class="pdf-chips">
+                    {interests.map((interest) => (
+                        <li>{interest}</li>
+                    ))}
+                </ul>
+            </article>
+        </div>
+    </div>
+</div>

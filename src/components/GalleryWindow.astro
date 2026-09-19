@@ -1,0 +1,97 @@
+---
+type GalleryImage = {
+    src: string;
+    label: string;
+};
+
+type GalleryFolder = {
+    name: string;
+    label: string;
+    images: GalleryImage[];
+};
+
+const folders: GalleryFolder[] = [
+    {
+        name: 'China',
+        label: 'China',
+        images: [
+            { src: '/img/gallery/China/chongqing-me.jpeg', label: 'chongqing me' },
+            { src: '/img/gallery/China/chongqing.jpeg', label: 'chongqing' },
+            { src: '/img/gallery/China/train.JPG', label: 'train' },
+        ],
+    },
+    {
+        name: 'LA-trip',
+        label: 'LA trip',
+        images: [
+            { src: '/img/gallery/LA-trip/LA-dawn.JPG', label: 'LA dawn' },
+            { src: '/img/gallery/LA-trip/LA-skyline.JPG', label: 'LA skyline' },
+            { src: '/img/gallery/LA-trip/LA-skyline2.JPG', label: 'LA skyline2' },
+            { src: '/img/gallery/LA-trip/griffith-dawn.JPG', label: 'griffith dawn' },
+            { src: '/img/gallery/LA-trip/griffith-seat.jpeg', label: 'griffith seat' },
+            { src: '/img/gallery/LA-trip/griffith-view.JPG', label: 'griffith view' },
+        ],
+    },
+];
+
+const rootImages: GalleryImage[] = [
+    { src: '/img/gallery/microsoft-visit.jpeg', label: 'microsoft visit' },
+];
+---
+
+<div class="folder-window" id="gallery-window" aria-hidden="true">
+    <div class="folder-panel">
+        <div class="folder-titlebar">
+            <span class="folder-title">
+                <button class="folder-back" id="gallery-back" type="button" hidden aria-label="Back">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <i class="fa-solid fa-images"></i>
+                <span id="gallery-title">Gallery</span>
+            </span>
+            <button class="folder-close" id="gallery-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="folder-content gallery-view" data-gallery-view="root">
+            {folders.map((folder) => (
+                <button class="folder-item" type="button" data-gallery-folder={folder.name}>
+                    <img class="folder-item-icon" src="/static/folder.png" alt="">
+                    <span>{folder.label}</span>
+                </button>
+            ))}
+            {rootImages.map((image) => (
+                <button class="folder-item" type="button" data-gallery-image={image.src} data-gallery-label={image.label}>
+                    <img class="gallery-thumb" src={image.src} alt={image.label}>
+                    <span>{image.label}</span>
+                </button>
+            ))}
+        </div>
+
+        {folders.map((folder) => (
+            <div class="folder-content gallery-view" data-gallery-view={folder.name} hidden>
+                {folder.images.map((image) => (
+                    <button class="folder-item" type="button" data-gallery-image={image.src} data-gallery-label={image.label}>
+                        <img class="gallery-thumb" src={image.src} alt={image.label}>
+                        <span>{image.label}</span>
+                    </button>
+                ))}
+            </div>
+        ))}
+    </div>
+</div>
+
+<div class="image-window" id="image-viewer" aria-hidden="true">
+    <div class="image-panel">
+        <div class="folder-titlebar">
+            <span class="folder-title" id="image-viewer-title">Photo</span>
+            <button class="folder-close" id="image-viewer-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="image-stage">
+            <img id="image-viewer-img" alt="">
+        </div>
+    </div>
+</div>

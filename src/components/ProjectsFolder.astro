@@ -1,0 +1,36 @@
+---
+const projects = [
+    {
+        name: 'Costa Rica Map',
+        src: '/icons/costa-rica.svg',
+        className: 'folder-item-icon folder-icon-costa',
+    },
+    {
+        name: 'BowlPOS',
+        src: '/icons/bowlpos.svg',
+        className: 'folder-item-icon',
+    },
+];
+---
+
+<div class="folder-window" id="projects-folder" aria-hidden="true">
+    <div class="folder-panel">
+        <div class="folder-titlebar">
+            <span class="folder-title">
+                <i class="fa-solid fa-folder"></i>
+                Projects
+            </span>
+            <button class="folder-close" id="projects-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="folder-content">
+            {projects.map((project) => (
+                <div class="folder-item">
+                    <img class={project.className} src={project.src} alt="">
+                    <span>{project.name}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+---
+const icons = [
+    { label: 'My CV', src: '/static/pdf.png', id: 'cv-button' },
+    { label: 'Projects', src: '/static/folder.png', id: 'projects-button' },
+    { label: 'Gallery', src: '/static/gallery.png', id: 'gallery-button' },
+];
+---
+
+<div class="desktop">
+    {icons.map((icon) => (
+        <button class="desktop-button" id={icon.id}>
+            <img class="desktop-icon" src={icon.src} alt="" />
+            {icon.label}
+        </button>
+    ))}
+</div>

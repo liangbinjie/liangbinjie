@@ -1,0 +1,31 @@
+---
+import LoginScreen from '../components/LoginScreen.astro';
+import Topbar from '../components/Topbar.astro';
+import Desktop from '../components/Desktop.astro';
+import ProjectsFolder from '../components/ProjectsFolder.astro';
+import CvWindow from '../components/CvWindow.astro';
+import GalleryWindow from '../components/GalleryWindow.astro';
+import BrowserWindow from '../components/BrowserWindow.astro';
+import Taskbar from '../components/Taskbar.astro';
+import '../styles/global.css';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Benji's Desktop</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body>
+        <LoginScreen />
+        <Topbar />
+        <Desktop />
+        <ProjectsFolder />
+        <CvWindow />
+        <GalleryWindow />
+        <BrowserWindow />
+        <Taskbar />
+        <script src="../scripts/desktop.js"></script>
+    </body>
+</html>

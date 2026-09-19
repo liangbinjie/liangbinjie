@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff2b73"/>
+      <stop offset="100%" stop-color="#f70857"/>
+    </linearGradient>
+
+    <radialGradient id="record" cx="38%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#3f4248"/>
+      <stop offset="55%" stop-color="#202228"/>
+      <stop offset="100%" stop-color="#111318"/>
+    </radialGradient>
+
+    <linearGradient id="label" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#fffafa"/>
+      <stop offset="100%" stop-color="#f2e9ec"/>
+    </linearGradient>
+
+    <linearGradient id="arm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e9e4e8"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity=".18"/>
+    </filter>
+
+    <filter id="smallShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000000" flood-opacity=".22"/>
+    </filter>
+
+    <!-- Subtle concentric grooves -->
+    <pattern id="grooves" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="12" fill="none" stroke="#ffffff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- App tile -->
+  <rect x="72" y="72" width="368" height="368" rx="76"
+        fill="url(#bg)" filter="url(#shadow)"/>
+
+  <!-- Vinyl record -->
+  <circle cx="245" cy="266" r="139" fill="url(#record)"/>
+  <circle cx="245" cy="266" r="139" fill="url(#grooves)"/>
+
+  <!-- Record highlight -->
+  <path d="M145 211 A139 139 0 0 1 288 132"
+        fill="none" stroke="#ffffff" stroke-opacity=".09" stroke-width="7"
+        stroke-linecap="round"/>
+
+  <!-- Record label -->
+  <circle cx="245" cy="266" r="50" fill="url(#label)" filter="url(#smallShadow)"/>
+  <circle cx="245" cy="266" r="13" fill="#f51b62"/>
+
+  <!-- Tonearm pivot -->
+  <circle cx="359" cy="158" r="31" fill="url(#arm)" filter="url(#smallShadow)"/>
+  <circle cx="359" cy="158" r="13" fill="#f7edf1"/>
+
+  <!-- Tonearm -->
+  <path d="M359 188
+           L359 245
+           C359 264 351 276 338 289
+           L313 313"
+        fill="none"
+        stroke="#dcd7dc"
+        stroke-width="19"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <path d="M359 188
+           L359 245
+           C359 264 351 276 338 289
+           L313 313"
+        fill="none"
+        stroke="url(#arm)"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Cartridge / stylus head -->
+  <g transform="rotate(-43 304 327)" filter="url(#smallShadow)">
+    <rect x="282" y="304" width="47" height="67" rx="12" fill="url(#arm)"/>
+    <rect x="299" y="326" width="13" height="22" rx="6.5" fill="#f51b62"/>
+  </g>
+</svg>
